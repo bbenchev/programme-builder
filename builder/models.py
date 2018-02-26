@@ -39,6 +39,9 @@ class Criterion(models.Model):
     def __str__(self):
         return self.code
 
+    class Meta:
+        verbose_name_plural = "Criteria"
+
 
 class Accreditation(models.Model):
     name = models.CharField(max_length=20)
