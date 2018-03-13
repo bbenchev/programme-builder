@@ -1,15 +1,37 @@
-<html>
+{% extends "base.html" %}
 
-<head>
+{% block title %}
 
-</head>
+<title> Modules </title>
 
-<body>
-<h1> Hello from template</h1>
-{% for module in modules %}
-  <a href="/modules/{{module.id}}"> {{module}} </a>
-{% endfor %}
+{% endblock %}
 
-</body>
+{% block content %}
 
-</html>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Module</th>
+      <th scope="col">Code</th>
+      <th scope="col">Credits</th>
+      <th scope="col">Manager</th>
+      <th scope="col">Semester</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for module in modules %}
+    <!-- <a href="/modules/{{module.id}}"> {{module}} </a> -->
+    <tr>
+      <th scope="row"><a href="/modules/{{module.id}}">{{module.title}}</a></th>
+      <td>{{module.code}}</td>
+      <td>{{module.credits}}</td>
+      <td>{{module.manager}}</td>
+      <td>{{module.taught_semester}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+{% endblock %}

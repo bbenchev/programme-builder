@@ -13,7 +13,7 @@ class Module(models.Model):
     SEMESTERS = (
         ("1", "1"),
         ("2", "2"),
-        ("both", "1 & 2")
+        ("1 & 2", "1 & 2")
     )
     title = models.CharField(max_length=100)
     code = models.CharField(max_length=15)

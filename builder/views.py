@@ -18,3 +18,6 @@ def module(request,id):
     context = {"module": module}
 
     return render(request, "module.html", context)
+
+def build(request):
+    return render(request, "build.html", {})
