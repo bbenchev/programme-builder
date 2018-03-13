@@ -10,16 +10,21 @@ class Module(models.Model):
         (OPTIONAL, "Optional"),
         (DISCOVERY, "Discovery")
     )
+    SEMESTERS = (
+        ("1", "1"),
+        ("2", "2"),
+        ("both", "1 & 2")
+    )
     title = models.CharField(max_length=100)
-    code = models.CharField(max_length=15, default="10")
-    credits = models.CharField(max_length=2)
+    code = models.CharField(max_length=15)
+    credits = models.CharField(max_length=2, default="10")
     manager = models.ForeignKey(User, on_delete=models.CASCADE, default="00")
-    taught_semester = models.CharField(max_length=1)
+    taught_semester = models.CharField(max_length=5, choices=SEMESTERS, default=SEMESTERS[0])
     module_type = models.CharField(max_length=1, choices=MODULE_TYPES,
         default=COMPULSORY, blank=False)
     level = models.CharField(max_length=1)
     prerequisites = models.ManyToManyField('self', symmetrical=False,
-        related_name='is_prerequisite_of')
+        related_name='is_prerequisite_of', blank=True)
 
     def __str__(self):
         return self.code + " " + self.title

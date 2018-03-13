@@ -1,11 +1,7 @@
-<html>
+{% extends "base.html" %}
 
-<head>
-
-</head>
-
-<body>
-<h1> Hello from template</h1>
+{% block content %}
+<h1> Login </h1>
 <form>
  <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -25,6 +21,4 @@
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
-</body>
-
-</html>
+{% endblock %}

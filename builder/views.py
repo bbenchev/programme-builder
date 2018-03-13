@@ -10,7 +10,6 @@ def get_modules(request):
     context = {"modules": Module.objects.all()}
 
 
-
     return render(request, "modules.html", context)
 
 
