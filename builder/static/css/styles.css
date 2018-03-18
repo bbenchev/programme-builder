@@ -10,9 +10,40 @@
     color: black;
 }
 
-.form-signin {
+.site-form {
     max-width: 450px;
     width: 100%;
     margin: 0 auto;
+    margin-top: 50px;
     padding: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+
+}
+
+.site-form label {
+    display: inline;
+}
+
+.errorlist {
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.errorlist li {
+    padding: 5px;
+    list-style-type: none;
+}
+
+.site-form > input {
+    width: inherit;
+}
+
+.helptext, .helptext ul {
+    font-size: 0.9em;
+    color: gray;
+    display: block;
+    margin: 0 auto 20px;
 }

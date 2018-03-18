@@ -24,10 +24,17 @@
     <a class="navbar-brand" href="{% url 'home' %}">
       School of Computing
     </a>
+    {% if user.is_authenticated %}
     <form class="logout-button" action="{% url 'logout' %}" method="post">
       {% csrf_token %}
       <input type="submit" value="Logout">
     </form>
+    {% else %}
+    <form class="logout-button" action="{% url 'index' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Login">
+    </form>
+    {% endif %}
   </nav>
 
   <ul class="nav nav-pills nav-fill" style="background: #e9e5e1;">

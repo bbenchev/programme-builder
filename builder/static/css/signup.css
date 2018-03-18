@@ -1,0 +1,10 @@
+.form-signup {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-title {
+    text-align: center;
+}

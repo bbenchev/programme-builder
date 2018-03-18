@@ -10,37 +10,27 @@
 </head>
 
 <body>
-  <form class="form-signin" action="{% url 'index' %}" method="post">
-      {% csrf_token %}
-      <div class="text-center mb-4">
-        <img class="mb-4" src="{% static 'images/square_logo.png' %}" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Programme Builder</h1>
-      </div>
-      {{form}}
-      {% if request.GET.next %}
-        <p> You have to be logged in to view this page </p>
-        <input type="hidden" name="next" value={{request.GET.next}}>
-      {% endif %}
-<!--
-      <div class="form-label-group">
-        <input type="text" id="id_username" name="username" required class="form-control" placeholder="Username" required autofocus>
-        <label for="id_username">Username</label>
-      </div>
-
-      <div class="form-label-group">
-        <input id="id_password" type="password" name="password" class="form-control" placeholder="Password" required>
-        <label for="id_password">Password</label>
-      </div> -->
-
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <p>Don't have an account yet? <a href="/signup"> Create account</a></p>
-      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Log in">
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
-    </form>
-  }
+  <div class="content">
+    <form class="site-form" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <div class="text-center mb-4">
+          <img class="mb-4" src="{% static 'images/square_logo.png' %}" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">Programme Builder</h1>
+        </div>
+        {{form}}
+        {% if request.GET.next %}
+          <p> You have to be logged in to view this page </p>
+          <input type="hidden" name="next" value={{request.GET.next}}>
+        {% endif %}
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <p>Don't have an account yet? <a href="/signup"> Create account</a></p>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Log in">
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      </form>
+    </div>
 </body>
 </html>

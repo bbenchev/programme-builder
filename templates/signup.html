@@ -1,7 +1,27 @@
-<h1> Signup </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form action="{% url 'signup' %}" method="post">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <title>Programme Builder</title>
+</head>
+
+<body>
+
+  <form class="site-form" action="{% url 'signup' %}" method="post">
+    <div class="text-center mb-4">
+        <img class="mb-4" src="{% static 'images/square_logo.png' %}" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+    </div>
     {% csrf_token %}
     {{form}}
-    <input type="submit" value="Sign up">
-</form>
+    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign up">
+  </form>
+</body>
+</html>
