@@ -21,15 +21,18 @@
   </ul>
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'index' %}">
-      <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand" href="{% url 'home' %}">
       School of Computing
     </a>
+    <form class="logout-button" action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Logout">
+    </form>
   </nav>
 
   <ul class="nav nav-pills nav-fill" style="background: #e9e5e1;">
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'index' %}">Home</a>
+      <a class="nav-link" href="{% url 'home' %}">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'modules' %}">Modules</a>
