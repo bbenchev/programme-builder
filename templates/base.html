@@ -21,12 +21,12 @@
   </ul>
 
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">
-      School of Computing
-    </a>
+    <a class="navbar-brand" href="{% url 'home' %}">School of Computing</a>
     {% if user.is_authenticated %}
+
     <form class="logout-button" action="{% url 'logout' %}" method="post">
       {% csrf_token %}
+      <p class="greeting"> Welcome, {{user.username}} </p>
       <input type="submit" value="Logout">
     </form>
     {% else %}
