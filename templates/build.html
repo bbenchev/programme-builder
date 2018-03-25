@@ -1,1 +1,40 @@
-<h1> Build a programme </h1>
+{% extends "base.html" %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/builder.css' %}">
+
+{% block title %}
+<title> Build a programme </title>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="modules col-md-4">
+  <div class="modules-1">
+    <p class="modules-title">Modules Level 1</p>
+    {% for each in modules1 %}
+    <p class="module"> {{each}} </p>
+    {% endfor %}
+  </div>
+
+  <div class="modules-2">
+    <p class="modules-title">Modules Level 2</p>
+    {% for each in modules2 %}
+    <p class="module"> {{each}} </p>
+    {% endfor %}
+  </div>
+
+  <div class="modules-3">
+    <p class="modules-title">Modules Level 3</p>
+    {% for each in modules3 %}
+    <p class="module"> {{each}} </p>
+    {% endfor %}
+  </div>
+</div>
+<div class="programme col-md-8">
+    <p class="title"> New Programme </p>
+</div>
+</div>
+
+
+{% endblock %}

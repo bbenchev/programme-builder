@@ -1,0 +1,31 @@
+.modules {
+    float: left;
+}
+
+.programme {
+    float: left;
+}
+
+.container-fluid {
+    padding-top: 16px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.modules-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.module {
+    border: 1px solid black;
+    margin-bottom: 3px;
+    text-align: center;
+    color: white;
+    background: black;
+}

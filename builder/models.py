@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 class Module(models.Model):
     COMPULSORY = "C"
@@ -15,6 +16,7 @@ class Module(models.Model):
         ("2", "2"),
         ("1 & 2", "1 & 2")
     )
+
     title = models.CharField(max_length=100)
     code = models.CharField(max_length=15)
     credits = models.CharField(max_length=2, default="10")
@@ -24,10 +26,11 @@ class Module(models.Model):
         default=COMPULSORY, blank=False)
     level = models.CharField(max_length=1)
     prerequisites = models.ManyToManyField('self', symmetrical=False,
-        related_name='is_prerequisite_of', blank=True)
+        related_name='is_prerequisite_of', blank=True, limit_choices_to=Q(level='1') | Q(level='2'))
 
     def __str__(self):
         return self.code + " " + self.title
+
 
 class Programme(models.Model):
     name = models.CharField(max_length=100)

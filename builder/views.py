@@ -39,7 +39,11 @@ def module(request,id):
 
 @login_required(login_url="/")
 def build(request):
-    return render(request, "build.html", {})
+    context = {}
+    context["modules1"] = Module.objects.filter(level="1")
+    context["modules2"] = Module.objects.filter(level="2")
+    context["modules3"] = Module.objects.filter(level="3")
+    return render(request, "build.html", context)
 
 def signup_handler(request):
     if request.method == "POST":

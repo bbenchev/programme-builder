@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import *
+from builder.models import *
 
 class ModuleTests(TestCase):
 
@@ -20,7 +20,7 @@ class ModuleTests(TestCase):
         soft_dev.prerequisites.add(professional_dev)
 
 
-        results = [str(module) for module in soft_dev.prerequisites.all()]
+        results = [str(module)for module in soft_dev.prerequisites.all()]
         self.assertEqual(results, [core_prog.title, professional_dev.title])
 
     def test_retrieve_prerequisite_of(self):
@@ -49,7 +49,7 @@ class ProgrammeTests(TestCase):
         cs = Programme(name="Computer Science")
         cs.save()
         cs.modules.add(core_prog, soft_dev)
-        prog_content = [str(module) for module in cs.modules.all()]
+        prog_content = [str(module)for module in cs.modules.all()]
         self.assertEqual(prog_content, [core_prog.title, soft_dev.title])
 
 

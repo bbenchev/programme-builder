@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/builder.css' %}">
 
   {% block title %}<title>Programme Builder</title>{% endblock %}
 </head>
@@ -45,18 +45,15 @@
       <a class="nav-link" href="{% url 'modules' %}">Modules</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Build</a>
+      <a class="nav-link" href="{% url 'build' %}">Build</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/admin">Admin</a>
     </li>
   </ul>
 
-
-  <!-- <div class="container"> -->
-    {% block content %}<!--  content goes here -->{% endblock %}
-  <!-- </div> -->
-
+  {% block content %}
+  {% endblock %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
