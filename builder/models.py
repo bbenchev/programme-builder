@@ -38,6 +38,7 @@ class Programme(models.Model):
     level = models.IntegerField(default=7)
     years = models.CharField(max_length=1, default=3)
     modules = models.ManyToManyField(Module, related_name='programmes')
+    accreditations = models.ManyToManyField(Accreditation, related_name="programmes")
 
     def __str__(self):
         return self.name
@@ -57,9 +58,9 @@ class Criterion(models.Model):
 
 class Accreditation(models.Model):
     # IET, QAA
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=100)
+    abbreviation = models.CharField(max_length=10)
     criteria = models.ManyToManyField(Criterion, related_name='accreditations')
-    programmes = models.ManyToManyField(Programme, related_name='is_accredited_by')
 
     def __str__(self):
         return self.name
