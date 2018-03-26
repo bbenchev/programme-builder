@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from .models import Module, Criterion
+from django.template.loader import render_to_string
+from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import SignUpForm, ProgrammeForm
@@ -41,7 +42,6 @@ def module(request,id):
 def build(request):
     context = {}
     context["form"] = ProgrammeForm()
-    context["criteria"] = Criterion.objects.all()
     context["modules1"] = Module.objects.filter(level="1")
     context["modules2"] = Module.objects.filter(level="2")
     context["modules3"] = Module.objects.filter(level="3")
@@ -62,4 +62,15 @@ def logout_handler(request):
     if request.method == "POST":
         logout(request)
         return redirect("index")
+
+def get_criteria(request):
+    index = request.get_full_path().index("?")
+    parameter = request.get_full_path()[index+1:]
+    accreditation = Accreditation.objects.filter(abbreviation=parameter)
+    criteria = accreditation[0].criteria.all()
+    context = {"criteria": []}
+    for each in criteria:
+        context["criteria"].append(each.definition)
+
+    return JsonResponse(context)
 

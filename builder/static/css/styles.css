@@ -53,3 +53,8 @@
     display: inline;
     margin-right: 20px;
 }
+
+#id_modules {
+    width: 100%;
+    height: 300px;
+}

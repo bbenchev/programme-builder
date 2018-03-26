@@ -32,15 +32,13 @@
   </div>
 </div>
 <div class="programme col-md-9">
-    <p class="title"> New Programme </p>
-    <div class=programme-data>
-      {{form}}
+    <p class="title"> Create New Programme </p>
+    <div class="programme-data col-md-4">
+      {{form.as_p}}
     </div>
-    <div class=criteria-div>
-      <ul>
-      {% for each in criteria %}
-      <li class=criterion> {{each.definition}} </li>
-      {% endfor %}
+    <div class="criteria-div col-md-8">
+      <p class="criteria-title"> Criteria to meet </p>
+      <ul class=criteria-list>
       </ul>
     </div>
 </div>

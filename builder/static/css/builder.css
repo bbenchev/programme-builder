@@ -6,6 +6,14 @@
     float: left;
 }
 
+.criteria-div {
+    float: left;
+}
+
+.programme-data {
+    float:left;
+}
+
 .container-fluid {
     padding-top: 16px;
 }
@@ -24,7 +32,7 @@
 
 .module {
     border: 1px solid black;
-    margin-bottom: 3px;
+    margin: 0px 5px 3px;
     text-align: center;
     color: white;
     background: black;
@@ -33,4 +41,8 @@
 
 .criterion {
     font-size: 0.75em;
+}
+
+.criteria-title {
+    text-align: center;
 }

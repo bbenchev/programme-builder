@@ -30,4 +30,4 @@ class ProgrammeForm(forms.ModelForm):
 
     class Meta:
         model = Programme
-        fields = ["name", "ucas_code", "level", "years", "accreditations", "modules"]
+        fields = ["name", "level", "years", "accreditations", "modules"]
