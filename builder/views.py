@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Module
+from .models import Module, Criterion
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .forms import SignUpForm
+from .forms import SignUpForm, ProgrammeForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -40,6 +40,8 @@ def module(request,id):
 @login_required(login_url="/")
 def build(request):
     context = {}
+    context["form"] = ProgrammeForm()
+    context["criteria"] = Criterion.objects.all()
     context["modules1"] = Module.objects.filter(level="1")
     context["modules2"] = Module.objects.filter(level="2")
     context["modules3"] = Module.objects.filter(level="3")

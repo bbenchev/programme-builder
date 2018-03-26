@@ -32,18 +32,6 @@ class Module(models.Model):
         return self.code + " " + self.title
 
 
-class Programme(models.Model):
-    name = models.CharField(max_length=100)
-    ucas_code = models.CharField(max_length=10)
-    level = models.IntegerField(default=7)
-    years = models.CharField(max_length=1, default=3)
-    modules = models.ManyToManyField(Module, related_name='programmes')
-    accreditations = models.ManyToManyField(Accreditation, related_name="programmes")
-
-    def __str__(self):
-        return self.name
-
-
 class Criterion(models.Model):
     code = models.CharField(max_length=10)
     definition = models.TextField()
@@ -57,13 +45,26 @@ class Criterion(models.Model):
 
 
 class Accreditation(models.Model):
-    # IET, QAA
     name = models.CharField(max_length=100)
-    abbreviation = models.CharField(max_length=10)
+    abbreviation = models.CharField(max_length=10, default=None)
     criteria = models.ManyToManyField(Criterion, related_name='accreditations')
 
     def __str__(self):
         return self.name
+
+class Programme(models.Model):
+    name = models.CharField(max_length=100)
+    ucas_code = models.CharField(max_length=10)
+    level = models.IntegerField(default=7)
+    years = models.CharField(max_length=1, default=3)
+    modules = models.ManyToManyField(Module, related_name='programmes')
+    accreditations = models.ManyToManyField(Accreditation, related_name="programmes")
+
+    def __str__(self):
+        return self.name
+
+
+
 
 
 

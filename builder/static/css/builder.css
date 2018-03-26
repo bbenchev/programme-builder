@@ -28,4 +28,9 @@
     text-align: center;
     color: white;
     background: black;
+    font-size: 0.8em;
+}
+
+.criterion {
+    font-size: 0.75em;
 }

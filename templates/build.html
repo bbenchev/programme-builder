@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="container-fluid">
-<div class="modules col-md-4">
+<div class="modules col-md-3">
   <div class="modules-1">
     <p class="modules-title">Modules Level 1</p>
     {% for each in modules1 %}
@@ -31,8 +31,18 @@
     {% endfor %}
   </div>
 </div>
-<div class="programme col-md-8">
+<div class="programme col-md-9">
     <p class="title"> New Programme </p>
+    <div class=programme-data>
+      {{form}}
+    </div>
+    <div class=criteria-div>
+      <ul>
+      {% for each in criteria %}
+      <li class=criterion> {{each.definition}} </li>
+      {% endfor %}
+      </ul>
+    </div>
 </div>
 </div>
 
