@@ -1,7 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-<h1> Homepage </h1>
+<h2 class="home-title"> My modules </h2>
+<table class="table my-modules">
+  <thead>
+    <tr>
+      <th scope="col">Module</th>
+      <th scope="col">Code</th>
+      <th scope="col">Credits</th>
+      <th scope="col">Semester</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for module in my_modules %}
+    <tr>
+      <th scope="row"><a href="/modules/{{module.id}}">{{module.title}}</a></th>
+      <td>{{module.code}}</td>
+      <td>{{module.credits}}</td>
+      <td>{{module.taught_semester}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

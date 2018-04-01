@@ -26,7 +26,8 @@ def login_handler(request):
 
 @login_required(login_url="/")
 def home(request):
-    return render(request, "home.html", {})
+    context = {"my_modules": Module.objects.filter(manager=request.user)}
+    return render(request, "home.html", context)
 
 def get_modules(request):
     context = {"modules": Module.objects.all()}

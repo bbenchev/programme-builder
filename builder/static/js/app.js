@@ -31,7 +31,6 @@ function dragDrop(ev) {
     ev.target.style.border = "";
 
     criteria = document.getElementsByClassName("criterion")
-    console.log(criteria);
     $.ajax({
         type: "GET",
         url:  "/ajax/check_fulfilled/" + id,
@@ -40,8 +39,7 @@ function dragDrop(ev) {
             for (item in items) {
                 for (criterion in criteria) {
                     if (items[item] == criteria[criterion].innerHTML) {
-                        console.log('here');
-                        criteria[criterion].style.color = "limegreen";
+                        criteria[criterion].style.color = "green";
                     }
                 }
             }

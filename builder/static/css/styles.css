@@ -53,3 +53,12 @@
     display: inline;
     margin-right: 20px;
 }
+
+.home-title {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.my-modules {
+    margin-top: 20px;
+}
