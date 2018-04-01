@@ -27,6 +27,17 @@ class ProgrammeForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         choices=ACCREDITATIONS_CHOICES
     )
+    modules = forms.MultipleChoiceField(
+        widget=forms.SelectMultiple(
+            attrs= {
+                "id": "dropzone",
+                "ondragenter": "dragEnter(event)",
+                "ondragleave": "dragLeave(event)",
+                "ondrop": "dragDrop(event)",
+                "ondragover": "allowDrop(event)"
+            })
+        )
+
 
     class Meta:
         model = Programme

@@ -39,10 +39,37 @@
     font-size: 0.8em;
 }
 
+#dropzone {
+    width: 100%;
+    height: 300px;
+}
+
+.criteria-list{
+    list-style: none
+}
+
 .criterion {
     font-size: 0.75em;
 }
 
 .criteria-title {
     text-align: center;
+}
+
+#id_accreditations {
+    padding-left: 0px;
+}
+
+#id_accreditations li {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.programme-form label {
+    margin-right: 10px;
+
+}
+
+.programme-form div {
+    margin-bottom: 10px;
 }

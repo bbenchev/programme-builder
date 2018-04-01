@@ -13,28 +13,56 @@
   <div class="modules-1">
     <p class="modules-title">Modules Level 1</p>
     {% for each in modules1 %}
-    <p class="module"> {{each}} </p>
+    <p id="{{each.id}}" class="module" draggable="true" ondragstart="startHandler(event)" ondragend="endHandler(event)"> {{each}} </p>
     {% endfor %}
   </div>
 
   <div class="modules-2">
     <p class="modules-title">Modules Level 2</p>
     {% for each in modules2 %}
-    <p class="module"> {{each}} </p>
+    <p id="{{each.id}}" class="module" draggable="true" ondragstart="startHandler(event)" ondragend="endHandler(event)"> {{each}} </p>
     {% endfor %}
   </div>
 
   <div class="modules-3">
     <p class="modules-title">Modules Level 3</p>
     {% for each in modules3 %}
-    <p class="module"> {{each}} </p>
+    <p id="{{each.id}}" class="module" draggable="true" ondragstart="startHandler(event)" ondragend="endHandler(event)"> {{each}} </p>
     {% endfor %}
   </div>
 </div>
+
 <div class="programme col-md-9">
     <p class="title"> Create New Programme </p>
     <div class="programme-data col-md-4">
-      {{form.as_p}}
+      <form class="programme-form" action='#' method="post">
+        {{form.non_field_errors}}
+        <div class=name>
+          {{form.name.errors}}
+          {{form.name.label_tag}} {{form.name}}
+        </div>
+
+        <div class=level>
+          {{form.level.errors}}
+          {{form.level.label_tag}} {{form.level}}
+        </div>
+
+        <div class=years>
+          {{form.years.errors}}
+          {{form.years.label_tag}} {{form.years}}
+        </div>
+
+        <div class=accreditation-wrapper>
+          {{form.accreditations.errors}}
+          {{form.accreditations.label_tag}} {{form.accreditations}}
+        </div>
+
+        <div class="modules-wrapper">
+          {{form.modules.errors}}
+          {{form.modules.label_tag}} {{form.modules}}
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save programme">
+      </form>
     </div>
     <div class="criteria-div col-md-8">
       <p class="criteria-title"> Criteria to meet </p>
