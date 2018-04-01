@@ -1,19 +1,10 @@
 $("input[type='checkbox']").change(function() {
+    var id = $(this).val();
     if (this.checked) {
-        $.ajax({
-        type: "GET",
-        url: "/get_criteria",
-        data: $(this).val(),
-        success : function(response) {
-            $.each(response.criteria, function(index,value) {
-                var li = $("<li class=criterion></li>").text(value);
-                $('.criteria-list').append(li);
-            })
-        }
-        });
+        $("#" + id).show();
     }
     else {
-        $('.criteria-list').empty();
+        $("#" + id).hide();
     }
 });
 
@@ -38,6 +29,23 @@ function dragDrop(ev) {
     option.classList.add("module");
     ev.target.appendChild(option);
     ev.target.style.border = "";
+
+    criteria = document.getElementsByClassName("criterion")
+    $.ajax({
+        type: "GET",
+        url:  "/ajax/check_fulfilled/" + id,
+        success: function(response) {
+            var items = response.criteria;
+            for (item in items) {
+                for (criterion in criteria) {
+                    if (items[item] == criteria[criterion].innerHTML) {
+                        console.log('here');
+                        criteria[criterion].style.color = "limegreen";
+                    }
+                }
+            }
+        }
+    })
 }
 
 function dragEnter(ev) {

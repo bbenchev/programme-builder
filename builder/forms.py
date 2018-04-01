@@ -38,7 +38,6 @@ class ProgrammeForm(forms.ModelForm):
             })
         )
 
-
     class Meta:
         model = Programme
         fields = ["name", "level", "years", "accreditations", "modules"]

@@ -45,6 +45,13 @@ def build(request):
     context["modules1"] = Module.objects.filter(level="1")
     context["modules2"] = Module.objects.filter(level="2")
     context["modules3"] = Module.objects.filter(level="3")
+
+    accreditations = Accreditation.objects.all()
+    context["accreditations"] = accreditations
+    for accreditation in accreditations:
+        context[accreditation.abbreviation] = accreditation.criteria.all()
+
+    print(context)
     return render(request, "build.html", context)
 
 def signup_handler(request):
@@ -74,3 +81,12 @@ def get_criteria(request):
 
     return JsonResponse(context)
 
+
+def check_fulfilled(request, id):
+    module = Module.objects.get(id=id)
+    query_set = module.meets.all()
+    fulfilled = {"criteria": []}
+    for criterion in query_set:
+        fulfilled["criteria"].append(criterion.definition)
+
+    return JsonResponse(fulfilled)

@@ -66,8 +66,17 @@
     </div>
     <div class="criteria-div col-md-8">
       <p class="criteria-title"> Criteria to meet </p>
-      <ul class=criteria-list>
-      </ul>
+      {% for each in accreditations %}
+      <div id={{each.abbreviation}} class=criteria-container>
+        <ul>
+        {% for item in each.criteria.all %}
+        <li class=criterion> {{item.definition}} </li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+      <!-- <ul class=criteria-list> -->
+      <!-- </ul> -->
     </div>
 </div>
 </div>

@@ -48,6 +48,10 @@
     list-style: none
 }
 
+.criteria-container {
+    display: none;
+}
+
 .criterion {
     font-size: 0.75em;
 }
