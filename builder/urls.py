@@ -10,6 +10,5 @@ urlpatterns = [
     path('modules/', views.get_modules, name="modules"),
     path('modules/<int:id>/', views.module),
     path('build/', views.build, name="build"),
-    path('ajax/get_criteria/', views.get_criteria),
     path('ajax/check_fulfilled/<int:id>/', views.check_fulfilled)
 ]

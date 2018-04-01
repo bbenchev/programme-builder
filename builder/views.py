@@ -70,18 +70,6 @@ def logout_handler(request):
         logout(request)
         return redirect("index")
 
-def get_criteria(request):
-    index = request.get_full_path().index("?")
-    parameter = request.get_full_path()[index+1:]
-    accreditation = Accreditation.objects.filter(abbreviation=parameter)
-    criteria = accreditation[0].criteria.all()
-    context = {"criteria": []}
-    for each in criteria:
-        context["criteria"].append(each.definition)
-
-    return JsonResponse(context)
-
-
 def check_fulfilled(request, id):
     module = Module.objects.get(id=id)
     query_set = module.meets.all()

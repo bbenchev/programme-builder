@@ -31,6 +31,7 @@ function dragDrop(ev) {
     ev.target.style.border = "";
 
     criteria = document.getElementsByClassName("criterion")
+    console.log(criteria);
     $.ajax({
         type: "GET",
         url:  "/ajax/check_fulfilled/" + id,
