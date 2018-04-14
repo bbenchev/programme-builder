@@ -30,21 +30,21 @@ function dragDrop(ev) {
     ev.target.appendChild(option);
     ev.target.style.border = "";
 
-    criteria = document.getElementsByClassName("criterion")
+    criteria = document.getElementsByClassName("criterion");
     $.ajax({
         type: "GET",
         url:  "/ajax/check_fulfilled/" + id,
         success: function(response) {
             var items = response.criteria;
-            for (item in items) {
-                for (criterion in criteria) {
+            for (var item in items) {
+                for (var criterion in criteria) {
                     if (items[item] == criteria[criterion].innerHTML) {
                         criteria[criterion].style.color = "green";
                     }
                 }
             }
         }
-    })
+    });
 }
 
 function dragEnter(ev) {
